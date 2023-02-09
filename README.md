@@ -177,7 +177,7 @@ spec:
       nodePort: 30005
 ```
 
-#### 5) Since Google Kubernetes Engine (GKE) provides a built-in and managed Ingress controller called GKE Ingress , so no need to add ingress controller , know we create the ingress itself.
+#### 5) Since Google Kubernetes Engine (GKE) provides a built-in and managed Ingress controller called GKE Ingress , so no need to add ingress controller , now we create the ingress itself.
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
