@@ -7,7 +7,7 @@
 ![Screenshot](screenshots/Task_diagram.png)
 
 
-### What terraform built in GCP
+### What terraform builds in GCP
 
 1) Virtual private cloud
 2) Two subnets (Management & Restricted )
