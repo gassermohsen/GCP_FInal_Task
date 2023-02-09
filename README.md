@@ -33,8 +33,13 @@ terraform apply
 
 ### To Deploy the Python app on GKE you need
 
+1) clone the repository https://github.com/atefhares/DevOps-Challenge-Demo-Code.git 
 
-1) Create Dockerfile
+```bash
+git clone https://github.com/atefhares/DevOps-Challenge-Demo-Code.git
+```
+
+2) Create Dockerfile
 ```Dockerfile 
 FROM python:3.7
 WORKDIR /app
@@ -46,7 +51,7 @@ COPY . .
 ENTRYPOINT [ "python3" ,"hello.py" ]
 ```
 
-2) Push this image to GCR 
+3) Push this image to GCR 
 
 ```bash
 docker build . -t last-gke:V1
@@ -58,7 +63,7 @@ docker push gcr.io/seventh-fact-375708/last-gke:V1
 
 
 
-3) SSH to the private VM  
+4) SSH to the private VM  
    1) Using the console or IAP
    2) Write this command to gain access on the cluster
      ```bash 
