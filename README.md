@@ -1,13 +1,13 @@
-### GCP Final Task
+# GCP Final Task
 
 ----
 
-####  Project Architecture
+###  Project Architecture
 
 ![Screenshot](screenshots/Task_diagram.png)
 
 
-#### What terraform built in GCP
+### What terraform built in GCP
 
 1) Virtual private cloud
 2) Two subnets (Management & Restricted )
@@ -22,16 +22,16 @@
 
 
 
-####  To build the infrastructure using Terraform 
+###  To build the infrastructure using Terraform 
 
 ```bash
 terraform init
 terraform plan # To check all the infrastructure components
 terraform apply 
 ```
+---
 
-
-#### To Deploy the Python app on GKE you need
+### To Deploy the Python app on GKE you need
 
 
 1) Create Dockerfile
@@ -65,10 +65,11 @@ docker push gcr.io/seventh-fact-375708/last-gke:V1
     gcloud container clusters get-credentials private-cluster --zone=us-central1-a
     ```
  4) Now you can access the cluster with kubectl commands 
+---
 
-### Kubernetes Stuff
+## Kubernetes Stuff
 
-#### 1) Create configMap to add the Enviromental variables 
+### 1) Create configMap to add the Enviromental variables 
 
 ```yaml
 apiVersion: v1
@@ -83,7 +84,7 @@ data:
   REDIS_DB: "0"
        
 ```
-#### 2) Create two deployments 
+### 2) Create two deployments 
 - One for the app built from the GCR Image we Pushed 
 ```yaml 
 apiVersion: apps/v1
@@ -135,8 +136,9 @@ spec:
 ``` 
 ![Screenshot](screenshots/Deployments.png)
 
+---
 
-#### 3) Create ClusterIP Service for redis 
+### 3) Create ClusterIP Service for redis 
 ```yaml
 
 apiVersion: v1
@@ -151,7 +153,7 @@ spec:
     targetPort: 6379
 ```
 
-#### 4) Create NodePort Service to be used by the Ingress 
+### 4) Create NodePort Service to be used by the Ingress 
 
 ```yaml
 
@@ -170,7 +172,7 @@ spec:
       nodePort: 30005
 ```
 
-#### 5) Since Google Kubernetes Engine (GKE) provides a built-in and managed Ingress controller called GKE Ingress , so no need to add ingress controller , know we create the ingress itself.
+### 5) Since Google Kubernetes Engine (GKE) provides a built-in and managed Ingress controller called GKE Ingress , so no need to add ingress controller , know we create the ingress itself.
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
