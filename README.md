@@ -69,7 +69,7 @@ docker push gcr.io/seventh-fact-375708/last-gke:V1
 
 ## Kubernetes Stuff
 
-### 1) Create configMap to add the Enviromental variables 
+#### 1) Create configMap to add the Enviromental variables 
 
 ```yaml
 apiVersion: v1
@@ -84,7 +84,7 @@ data:
   REDIS_DB: "0"
        
 ```
-### 2) Create two deployments 
+#### 2) Create two deployments 
 - One for the app built from the GCR Image we Pushed 
 ```yaml 
 apiVersion: apps/v1
@@ -138,7 +138,7 @@ spec:
 
 ---
 
-### 3) Create ClusterIP Service for redis 
+#### 3) Create ClusterIP Service for redis 
 ```yaml
 
 apiVersion: v1
@@ -153,7 +153,7 @@ spec:
     targetPort: 6379
 ```
 
-### 4) Create NodePort Service to be used by the Ingress 
+#### 4) Create NodePort Service to be used by the Ingress 
 
 ```yaml
 
@@ -172,7 +172,7 @@ spec:
       nodePort: 30005
 ```
 
-### 5) Since Google Kubernetes Engine (GKE) provides a built-in and managed Ingress controller called GKE Ingress , so no need to add ingress controller , know we create the ingress itself.
+#### 5) Since Google Kubernetes Engine (GKE) provides a built-in and managed Ingress controller called GKE Ingress , so no need to add ingress controller , know we create the ingress itself.
 ```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
